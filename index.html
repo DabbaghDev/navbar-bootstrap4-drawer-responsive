@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+  <title>Navbar Bootstrap4 Drawer Responsive</title>
+</head>
+
+<body>
+  <style>
+    .collapse-bg {
+      position: fixed;
+      display: none;
+    }
+
+    @media (max-width: 992px) {
+
+      .navbar-collapse {
+        background: #343a40;
+        position: fixed;
+        right: -250px;
+        top: 0;
+        height: 100vh;
+        width: 235px;
+        z-index: 999;
+        margin: 0 !important;
+        -webkit-transition: right 0.3s linear 0s;
+        -moz-transition: right 0.3s linear 0s;
+        -ms-transition: right 0.3s linear 0s;
+        -o-transition: right 0.3s linear 0s;
+        transition: right 0.3s linear 0s;
+      }
+
+      .navbar-collapse a {
+        color: #fff !important;
+      }
+
+      .navbar-collapse.show {
+        right: 0;
+        top: 0;
+        -webkit-transition: right 0.3s linear 0s;
+        -moz-transition: right 0.3s linear 0s;
+        -ms-transition: right 0.3s linear 0s;
+        -o-transition: right 0.3s linear 0s;
+        transition: right 0.3s linear 0s;
+      }
+
+      .collapse-bg {
+        display: none;
+        position: fixed;
+        background: #00000078;
+        width: 100%;
+        height: 200%;
+        z-index: 888;
+        right: 0;
+        top: 0;
+        -webkit-transition: right 0.3s linear 0s;
+        -moz-transition: right 0.3s linear 0s;
+        -ms-transition: right 0.3s linear 0s;
+        -o-transition: right 0.3s linear 0s;
+        transition: right 0.3s linear 0s;
+      }
+
+      .nav-item {
+        background: #48515a;
+        border-radius: 1.5rem;
+        padding: 0 10px;
+        margin: 10px 5px 0px 5px;
+      }
+
+      .navbar-nav {
+        padding-left: 3px !important;
+      }
+
+    }
+  </style>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="collapse-bg"></span>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    $(window).on('load', function () {
+
+      $(".navbar-toggler").click(function () {
+        if ($(".navbar-toggler").hasClass("collapsed")) {
+          $(".collapse-bg").css({
+            display: 'none'
+          });
+        } else {
+          $(".collapse-bg").css({
+            display: 'block'
+          });
+        }
+      });
+
+      $(".collapse-bg").click(function () {
+        $(".navbar-toggler").removeClass("collapsed");
+        $(".navbar-collapse").removeClass("show");
+        $(".collapse-bg").css({
+          display: 'none'
+        });
+      });
+
+    });
+  </script>
+</body>
+
+</html>
